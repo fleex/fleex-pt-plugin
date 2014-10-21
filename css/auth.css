@@ -1,0 +1,15 @@
+#auth-container .auth #auth-content {
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#auth-container .auth #auth-content #auth-iframe {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8) !important;
+}
+#auth-container .auth #auth-content.auth-loading #auth-iframe {
+  background: url("../../images/loader-white.gif") center center no-repeat, rgba(0,0,0,0.8) !important;
+}

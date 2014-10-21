@@ -1,0 +1,216 @@
+.fleex-info {
+  width: calc(30% + 10px);
+  float: right;
+  position: absolute;
+  top: 30px;
+  height: 35px;
+  right: 0;
+  z-index: 10;
+  opacity: 0.97;
+  background-color: #17181b;
+  box-shadow: 0px 6px 8px -4px rgba(0,0,0,0.9);
+  -webkit-user-select: none;
+}
+.fleex-info button {
+  -webkit-app-region: no-drag;
+  background: center no-repeat;
+  transition: background-image 0.5s;
+  width: 22px;
+  height: 18px;
+  margin: 7px 0 0;
+}
+.fleex-info .dropdown {
+  padding: 10px 0 0;
+  margin-right: 20px;
+}
+.fleex-info .dropdown > a {
+  -webkit-app-region: no-drag;
+  display: inline-block;
+  padding: 0;
+  color: #c3c5c7;
+  background-color: transparent !important;
+}
+.fleex-info .dropdown > ahover {
+  color: #fff;
+}
+.fleex-info .dropdown .dropdown-menu {
+  font-size: 0.9em;
+  -webkit-app-region: no-drag;
+  max-height: 500px;
+  margin-top: 11px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.fleex-info .level-container {
+  margin: 5px 12px 0 0;
+}
+.fleex-info .level-container span {
+  display: block;
+}
+.fleex-info .level-container .level-index,
+.fleex-info .level-container .level-completion-rate {
+  display: inline-block;
+}
+.fleex-info .level-container .level-index {
+  margin-right: 7px;
+  color: #c3c5c7;
+}
+.fleex-info .level-container .level-completion-rate {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 3px;
+  border-radius: 14px;
+  border: 2px solid #c3c5c7;
+}
+.fleex-info .level-container .level-completion-rate .half {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  clip: rect(0px 14px 14px 0px);
+}
+.fleex-info .level-container .level-completion-rate .half.first .slice {
+  -webkit-transform: rotate(180deg);
+}
+.fleex-info .level-container .level-completion-rate .half.second {
+  -webkit-transform: rotate(180deg);
+  clip: rect(0px 14px 14px 7px);
+}
+.fleex-info .level-container .level-completion-rate .half .slice {
+  background-color: #c3c5c7;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  clip: rect(0px 7px 14px 0px);
+}
+.fleex-info .level-container .level-completion-rate.under-fifty .first.half {
+  clip: rect(0px 14px 14px 7px);
+}
+.fleex-info .level-container .level-completion-rate.under-fifty .second.half {
+  display: none;
+}
+.fleex-tooltip-label {
+  margin: 4px 0 3px;
+}
+.fleex-flag {
+  width: 47px;
+  height: 16px;
+  padding-left: 23px;
+  background-repeat: no-repeat !important;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.fleex-flag.eng {
+  background: url("../images/flags/US.png");
+}
+.fleex-flag.fre,
+.fleex-flag.fra {
+  background: url("../images/flags/FR.png");
+}
+.fleex-flag.spa {
+  background: url("../images/flags/ES.png");
+}
+.fleex-flag.por {
+  background: url("../images/flags/PT.png");
+}
+.fleex-flag.pol {
+  background: url("../images/flags/PL.png");
+}
+.fleex-flag.pob {
+  background: url("../images/flags/BR.png");
+}
+.fleex-flag.rum,
+.fleex-flag.ron {
+  background: url("../images/flags/RO.png");
+}
+.fleex-flag.cze,
+.fleex-flag.ces {
+  background: url("../images/flags/CZ.png");
+}
+.fleex-flag.ell,
+.fleex-flag.gre {
+  background: url("../images/flags/GR.png");
+}
+.fleex-flag.tur {
+  background: url("../images/flags/TR.png");
+}
+.fleex-flag.hun {
+  background: url("../images/flags/HU.png");
+}
+.fleex-flag.bul {
+  background: url("../images/flags/BG.png");
+}
+.fleex-flag.scc,
+.fleex-flag.srp {
+  background: url("../images/flags/RS.png");
+}
+.fleex-flag.dut,
+.fleex-flag.nld {
+  background: url("../images/flags/NL.png");
+}
+.fleex-flag.heb {
+  background: url("../images/flags/IL.png");
+}
+.fleex-flag.ita {
+  background: url("../images/flags/IT.png");
+}
+.fleex-flag.hrv {
+  background: url("../images/flags/HR.png");
+}
+.fleex-flag.fin {
+  background: url("../images/flags/FI.png");
+}
+.fleex-flag.slv {
+  background: url("../images/flags/SI.png");
+}
+.fleex-flag.ara {
+  background: url("../images/flags/_arab-league.png");
+}
+.fleex-flag.swe {
+  background: url("../images/flags/SE.png");
+}
+.fleex-flag.rus {
+  background: url("../images/flags/RU.png");
+}
+.fleex-flag.dan {
+  background: url("../images/flags/DK.png");
+}
+.fleex-flag.est {
+  background: url("../images/flags/EE.png");
+}
+.fleex-flag.ger,
+.fleex-flag.deu {
+  background: url("../images/flags/DE.png");
+}
+.fleex-flag.bos {
+  background: url("../images/flags/BA.png");
+}
+.fleex-flag.slo,
+.fleex-flag.slk {
+  background: url("../images/flags/SK.png");
+}
+.fleex-flag.tha {
+  background: url("../images/flags/TH.png");
+}
+.fleex-flag.nor {
+  background: url("../images/flags/NO.png");
+}
+.fleex-flag.ind {
+  background: url("../images/flags/ID.png");
+}
+.fleex-flag.chi,
+.fleex-flag.zho {
+  background: url("../images/flags/CN.png");
+}
+.fleex-flag.jpn {
+  background: url("../images/flags/JP.png");
+}
+.fleex-flag.kor {
+  background: url("../images/flags/KR.png");
+}

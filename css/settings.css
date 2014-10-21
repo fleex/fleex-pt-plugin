@@ -1,0 +1,11 @@
+#subtitles{
+	display:none;
+}
+
+#fleex iframe{
+	background: transparent;
+}
+
+#fleex .native-language-loading{
+	background: url("../images/loader-white-small.gif") 14px 6px no-repeat;
+}
