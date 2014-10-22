@@ -1,3 +1,9 @@
+.source.showAnime {
+  display: none;
+}
 .filter-bar {
-	width: 70%!important;
+	width: 76%!important;
+}
+.filter-bar .nav.right{
+	margin-top: -3px;
 }
