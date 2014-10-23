@@ -209,14 +209,6 @@
 			</div>
 		</section>
 	
-	
-		<section id="fleex">
-			<div class="title"><%= i18n.__("fleex") %></div>
-			<div class="content">
-				<iframe class="<% if(loading){ %>native-language-loading<% } %>" height="100%" width="100%" src="<%= Settings.fleexApiEndpoint + 'Popcorn/Settings' %>"></iframe>
-			</div>
-		</section>
-	
 		<section id="remote-control" class="advanced">
 			<div class="title"><%= i18n.__("Remote Control") %></div>
 			<div class="content">
@@ -297,6 +289,7 @@
 				</div>
 			</div>
 		</section>
+
 	    <section id="miscellaneous" class="advanced">
 			<div class="title"><%= i18n.__("Miscellaneous") %></div>
 			<div class="content">
@@ -320,6 +313,14 @@
 				</span>
 			</div>
 		</section>
+	
+		<section id="fleex">
+			<div class="title"><%= i18n.__("fleex") %></div>
+			<div class="content">
+				<iframe class="<% if(loading){ %>native-language-loading<% } %>" height="100%" width="100%" src="<%= Settings.fleexApiEndpoint + 'Popcorn/Settings' %>"></iframe>
+			</div>
+		</section>
+
 		<div class="btns advanced">
 			<div class="btn-settings flush-bookmarks"><%= i18n.__("Flush bookmarks database") %></div>
 			<div class="btn-settings flush-subtitles"><%= i18n.__("Flush subtitles cache") %></div>
