@@ -10,7 +10,6 @@
 	"main": "app://host/src/app/index.html",
 	"version": "0.0.1",
 	"dependencies": {
-		"os-torrent-hash": "0.0.6",
-		"torrent-stream": "^0.10.1"
+		"os-torrent-hash": "0.0.9"
 	}
 }
