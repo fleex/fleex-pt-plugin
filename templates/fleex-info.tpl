@@ -27,7 +27,7 @@
 			</li>
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					<%= name %>
+					<span class="user-name"><%= name %></span>
 					<span class="caret"></span>
 				</a>
 				<ul class="dropdown-menu">

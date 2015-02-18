@@ -31,7 +31,14 @@
   color: #909498;
   background-color: transparent !important;
 }
-.fleex-info .dropdown > ahover {
+.fleex-info .dropdown > a .user-name{
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.fleex-info .dropdown > a:hover {
   color: #fff;
 }
 .fleex-info .dropdown .dropdown-menu {
