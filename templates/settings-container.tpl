@@ -7,8 +7,8 @@
 			<div class="title"><%= i18n.__("Settings") %></div>
 			<div class="content">
 				<span>
-					<i class="fa fa-keyboard-o keyboard"></i>
-					<i class="fa fa-question-circle help"></i>
+					<i class="fa fa-keyboard-o keyboard tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Keyboard Shortcuts") %>"></i>
+					<i class="fa fa-question-circle help tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Help Section") %>"></i>
 					<input id="show-advanced-settings" class="settings-checkbox" name="showAdvancedSettings" type="checkbox" <%=(Settings.showAdvancedSettings? "checked":"")%>>
 					<label class="settings-label" for="show-advanced-settings"><%= i18n.__("Show advanced settings") %></label>
 				</span>
@@ -123,7 +123,9 @@
 						<select name="subtitle_language"><%=sub_langs%></select>
 						<div class="dropdown-arrow"></div>
 					</div>
-	
+				</span>
+
+				<span>
 					<div class="dropdown subtitles-size">
 						<p><%= i18n.__("Size") %>:</p>
 						<%
@@ -138,6 +140,25 @@
 						<div class="dropdown-arrow"></div>
 					</div>
 				</span>
+
+				 <span class="advanced">
+					<div class="subtitles-custom">
+						<p><%= i18n.__("Color") + ":" %></p>
+						<input class="colorsub" id="subtitles_color" type="color" size="7" name="subtitle_color" value="<%=Settings.subtitle_color%>" list="subs_colors">
+							<datalist id="subs_colors">
+								<option>#ffffff</option>
+								<option>#ffff00</option>
+								<option>#ff0000</option>
+								<option>#ff00ff</option>
+								<option>#00ffff</option>
+								<option>#00ff00</option>
+							</datalist>
+
+						<input class="settings-checkbox" name="subtitle_shadows" id="subtitle_shadows" type="checkbox" <%=(Settings.subtitle_shadows? "checked='checked'":"")%>>
+						<label class="settings-label" for="subtitle_shadows"><%= i18n.__("With Shadows") %></label>
+					</div>
+				</span>
+
 			</div>
 		</section>
 		
@@ -164,6 +185,10 @@
 		<section id="playback">
 			<div class="title"><%= i18n.__("Playback") %></div>
 			<div class="content">
+				<span class="advanced">
+					<input class="settings-checkbox" name="alwaysFullscreen" id="alwaysFullscreen" type="checkbox" <%=(Settings.alwaysFullscreen? "checked='checked'":"")%>>
+					<label class="settings-label" for="alwaysFullscreen"><%= i18n.__("Always start playing in fullscreen") %></label>
+				</span>
 				<span>
 					<input class="settings-checkbox" name="playNextEpisodeAuto" id="playNextEpisodeAuto" type="checkbox" <%=(Settings.playNextEpisodeAuto? "checked='checked'":"")%>>
 					<label class="settings-label" for="playNextEpisodeAuto"><%= i18n.__("Play next episode automatically") %></label>
@@ -184,6 +209,10 @@
 							<div class="btn-settings syncTrakt" id="syncTrakt">
 								<i class="fa fa-refresh">&nbsp;&nbsp;</i>
 								<%= i18n.__("Sync With Trakt") %>
+							</div>
+							<div class="sync-on-start">
+								<input class="settings-checkbox" name="syncOnStart" id="syncOnStart" type="checkbox" <%=(Settings.syncOnStart? "checked='checked'":"")%>>
+								<label class="settings-label" for="syncOnStart"><%= i18n.__("Automatically Sync on Start") %></label>
 							</div>
 						</span>
 					<% } else { %>
@@ -208,10 +237,27 @@
 				</div>
 			</div>
 		</section>
+
+		<section id="vpn">
+			<div class="title"><%= i18n.__("VPN") %></div>
+			<div class="content">
+				<div class="vpn-options">
+					<span>
+						<input class="settings-checkbox" name="vpnDisabledPerm" id="vpnDisabledPerm" type="checkbox" <%=(Settings.vpnDisabledPerm? "checked='checked'":"")%>>
+						<label class="settings-label" for="vpnDisabledPerm"><%= i18n.__("Hide VPN from the filter bar") %></label>
+					</span>
+				</div>
+			</div>
+		</section>
+
 	
 		<section id="remote-control" class="advanced">
 			<div class="title"><%= i18n.__("Remote Control") %></div>
 			<div class="content">
+				<span>
+					<p><%= i18n.__("Local IP Address") + ":" %></p>
+					<input type="text" value="<%= Settings.ipAddress %>" readonly="readonly" size="20" />
+				</span>
 				<span>
 					<p><%= i18n.__("HTTP API Port") + ":" %></p>
 					<input id="httpApiPort" type="number" size="5" name="httpApiPort" value="<%=Settings.httpApiPort%>">
@@ -225,7 +271,11 @@
 					<input id="httpApiPassword" type="text" size="50" name="httpApiPassword" value="<%=Settings.httpApiPassword%>">
 				</span>
 				<div class="btns advanced database">
-					<div class="btn-settings database qr-code"><%= i18n.__("Generate Pairing QR code") %></div>
+					<div class="btn-settings database qr-code">
+						<i class="fa fa-qrcode">&nbsp;&nbsp;</i>
+						<%= i18n.__("Generate Pairing QR code") %>
+					</div>
+
 				</div>
 				<div id="qrcode-overlay"></div>
 				<div id="qrcode-modal">
@@ -243,7 +293,7 @@
 			<div class="content">
 				<span>
 					<p><%= i18n.__("TV Show API Endpoint") + ":" %></p>
-					<input id="tvshowApiEndpoint" type="text" size="50" name="tvshowApiEndpoint" value="<%=Settings.tvshowApiEndpoint%>">
+					<input id="tvshowAPI" type="text" size="50" name="tvshowAPI" value="<%=Settings.tvshowAPI.url%>">
 				</span>
 				<span>
 					<p><%= i18n.__("Connection Limit") + ":" %></p>
@@ -265,7 +315,8 @@
 			<div class="content">
 				<span>
 					<p><%= i18n.__("Cache Directory") %>: </p>
-					<input type="text" placeholder="<%= i18n.__("Cache Directory") %>" id="faketmpLocation" value="<%= Settings.tmpLocation %>" readonly="readonly" size="65" /> <i class="open-tmp-folder fa fa-folder-open-o"></i>
+					<input type="text" placeholder="<%= i18n.__("Cache Directory") %>" id="faketmpLocation" value="<%= Settings.tmpLocation %>" readonly="readonly" size="65" />
+					<i class="open-tmp-folder fa fa-folder-open-o tooltipped" data-toggle="tooltip" data-placement="auto" title="<%= i18n.__("Open Cache Directory") %>"></i>
 					<input type="file" name="tmpLocation" id="tmpLocation" nwdirectory style="display: none;" nwworkingdir="<%= Settings.tmpLocation %>" />
 				</span>
 				<span>
@@ -280,17 +331,29 @@
 			<div class="content">
 				<span>
 					<p><%= i18n.__("Database Directory") %>: </p>
-					<input type="text" placeholder="<%= i18n.__("Database Directory") %>" id="fakedatabaseLocation" value="<%= Settings.databaseLocation %>" readonly="readonly" size="65" /> <i class="open-database-folder fa fa-folder-open-o"></i>
+					<input type="text" placeholder="<%= i18n.__("Database Directory") %>" id="fakedatabaseLocation" value="<%= Settings.databaseLocation %>" readonly="readonly" size="65" />
+					<i class="open-database-folder fa fa-folder-open-o tooltipped" data-toggle="tooltip" data-placement="auto" title="<%= i18n.__("Open Database Directory") %>"></i>
 					<input type="file" name="fakedatabaseLocation" id="fakedatabaseLocation" nwdirectory style="display: none;" nwworkingdir="<%= Settings.databaseLocation %>" />
 				</span>
 				<div class="btns advanced database">
-					<div class="btn-settings database import-database"><%= i18n.__("Import Database") %></div>
-					<div class="btn-settings database export-database"><%= i18n.__("Export Database") %></div>
+					<div class="btn-settings database import-database">
+	                    <i class="fa fa-level-down">&nbsp;&nbsp;</i>
+	                    <%= i18n.__("Import Database") %>
+	                </div>
+					<div class="btn-settings database export-database">
+	                    <i class="fa fa-level-up">&nbsp;&nbsp;</i>
+	                    <%= i18n.__("Export Database") %>
+	                </div>
 				</div>
+				<span>
+					<input class="settings-checkbox" name="allowTorrentStorage" id="allowTorrentStorage" type="checkbox" <%=(Settings.allowTorrentStorage? "checked='checked'":"")%>>
+					<label class="settings-label" for="allowTorrentStorage"><%= i18n.__("Allow torrents to be stored for further use") %></label>
+				</span>
 			</div>
 		</section>
 
-	    <section id="miscellaneous" class="advanced">
+
+		<section id="miscellaneous" class="advanced">
 			<div class="title"><%= i18n.__("Miscellaneous") %></div>
 			<div class="content">
 				<span >
@@ -311,6 +374,15 @@
 						<div class="dropdown-arrow"></div>
 					</div>
 				</span>
+				<span>
+					<input class="settings-checkbox" name="automaticUpdating" id="cb5" type="checkbox" <%=(Settings.automaticUpdating? "checked='checked'":"")%>>
+					<label class="settings-label" for="cb5"><%= i18n.__("Activate automatic updating") %></label>
+				</span>
+				<span>
+					<input class="settings-checkbox" name="events" id="cb6" type="checkbox" <%=(Settings.events? "checked='checked'":"")%>>
+					<label class="settings-label" for="cb6"><%= i18n.__("Celebrate various events") %></label>
+				</span>
+
 			</div>
 		</section>
 	
